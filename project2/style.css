@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:#000;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 30rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: #e0e0e0;
+  width: 100%;
+  height: 0.25rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.progress {
+  background-color:dodgerblue;
+  width: 0%;
+  height: 0.25rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.circle {
+  background-color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:3px solid #e1e1e1;
+}
+
+.circle.active {
+  border-color: dodgerblue;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: dodgerblue;
+  color: #f1f1f1;
+  font-size: .8rem;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 1rem;
+}
+
+.btn:active {
+  transform: scale(.9);
+  opacity: .6;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+
