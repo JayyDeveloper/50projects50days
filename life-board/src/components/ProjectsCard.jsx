@@ -85,7 +85,7 @@ export default function ProjectsCard() {
   const [modal, setModal] = useState(null)
 
   return (
-    <div className="bg-white dark:bg-[#16132a] rounded-3xl shadow-sm shadow-violet-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-violet-100 dark:shadow-none border border-white dark:border-white/5 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-500/20 dark:to-fuchsia-500/20 flex items-center justify-center">

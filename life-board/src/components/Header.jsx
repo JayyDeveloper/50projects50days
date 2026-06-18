@@ -18,7 +18,7 @@ export default function Header() {
   })
 
   return (
-    <header className="bg-white/60 dark:bg-[#13111f]/60 backdrop-blur-xl border-b border-white/80 dark:border-white/5 sticky top-0 z-40">
+    <header className="bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-white/80 dark:border-white/5 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
 
         <div className="flex items-center gap-2.5 flex-shrink-0">
