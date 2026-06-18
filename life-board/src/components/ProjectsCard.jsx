@@ -9,7 +9,7 @@ const STATUS = {
   done:   { label: 'Done',   dot: 'bg-gray-300',    pill: 'bg-gray-100 text-gray-400 dark:bg-white/5 dark:text-gray-500',            grad: 'from-gray-300 to-gray-200'   },
 }
 
-const inputCls = "w-full px-3 py-2.5 rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-sm outline-none focus:ring-2 focus:ring-violet-300 transition placeholder:text-gray-300 dark:placeholder:text-gray-600"
+const inputCls = "w-full px-3 py-2.5 rounded-xl border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-sm text-sm outline-none focus:ring-2 focus:ring-violet-300 transition placeholder:text-gray-300 dark:placeholder:text-gray-600"
 
 function ProjectForm({ initial, onSave, onClose }) {
   const [title, setTitle] = useState(initial?.title ?? '')
@@ -48,7 +48,7 @@ function ProjectForm({ initial, onSave, onClose }) {
         </div>
       </div>
       <div className="flex gap-2 pt-1">
-        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-sm font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition">Cancel</button>
+        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-white/30 dark:border-white/10 text-sm font-medium hover:bg-white/20 dark:hover:bg-white/5 transition">Cancel</button>
         <button type="submit" className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-semibold hover:opacity-90 transition shadow-lg shadow-violet-200 dark:shadow-violet-900/30">{initial ? 'Save' : 'Add Project'}</button>
       </div>
     </form>
@@ -58,7 +58,7 @@ function ProjectForm({ initial, onSave, onClose }) {
 function ProjectItem({ project, onEdit, onDelete }) {
   const s = STATUS[project.status] ?? STATUS.active
   return (
-    <div className="flex items-center gap-3 group py-3 border-b border-gray-50 dark:border-white/5 last:border-0">
+    <div className="flex items-center gap-3 group py-3 border-b border-white/10 dark:border-white/8 last:border-0 hover:bg-white/20 dark:hover:bg-white/10 rounded-xl px-2 -mx-2 transition-colors">
       <div className={`w-2 h-2 rounded-full flex-shrink-0 ${s.dot}`} />
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1.5">
@@ -66,14 +66,14 @@ function ProjectItem({ project, onEdit, onDelete }) {
           <span className={`text-xs px-2 py-0.5 rounded-full font-medium flex-shrink-0 ${s.pill}`}>{s.label}</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex-1 h-1.5 bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
+          <div className="flex-1 h-1.5 bg-white/20 dark:bg-white/10 rounded-full overflow-hidden">
             <div className={`h-full bg-gradient-to-r ${s.grad} rounded-full transition-all duration-500`} style={{ width: `${project.progress}%` }} />
           </div>
           <span className="text-xs text-gray-400 w-7 text-right">{project.progress}%</span>
         </div>
       </div>
       <div className="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
-        <button onClick={onEdit} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"><Pencil size={11} className="text-gray-400" /></button>
+        <button onClick={onEdit} className="p-1.5 rounded-lg hover:bg-white/20 dark:hover:bg-white/10 transition-colors"><Pencil size={11} className="text-gray-400" /></button>
         <button onClick={onDelete} className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"><Trash2 size={11} className="text-red-400" /></button>
       </div>
     </div>
@@ -85,10 +85,10 @@ export default function ProjectsCard() {
   const [modal, setModal] = useState(null)
 
   return (
-    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-violet-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-white/10 shadow-2xl shadow-black/10 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-500/20 dark:to-fuchsia-500/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-100/80 to-fuchsia-100/80 dark:from-violet-500/20 dark:to-fuchsia-500/20 flex items-center justify-center">
             <Briefcase size={15} className="text-violet-500" />
           </div>
           <div>

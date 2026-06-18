@@ -161,7 +161,7 @@ export default function MindMapEditor({ mapId, onClose }) {
       onMouseUp={handleMouseUp}
     >
       {/* Top bar */}
-      <div className="flex items-center gap-3 px-4 h-14 bg-black/80 backdrop-blur border-b border-white/5 flex-shrink-0">
+      <div className="flex items-center gap-3 px-4 h-14 bg-black/60 backdrop-blur-2xl border-b border-white/10 flex-shrink-0">
         <button
           onClick={onClose}
           className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors mr-2"
@@ -369,7 +369,7 @@ export default function MindMapEditor({ mapId, onClose }) {
       </div>
 
       {/* Bottom hint bar */}
-      <div className="h-9 bg-black/60 border-t border-white/5 flex items-center justify-center gap-6 flex-shrink-0">
+      <div className="h-9 bg-black/40 backdrop-blur-xl border-t border-white/10 flex items-center justify-center gap-6 flex-shrink-0">
         <span className="text-xs text-gray-600">Click to select</span>
         <span className="text-xs text-gray-700">·</span>
         <span className="text-xs text-gray-600">Double-click to edit</span>

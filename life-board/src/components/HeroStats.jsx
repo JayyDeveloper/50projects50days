@@ -4,10 +4,10 @@ import { today, calcStreak } from '../utils/helpers'
 
 function HeroCard({ title, big, sub, label, icon, grad, deco1, deco2 }) {
   return (
-    <div className={`relative rounded-3xl p-6 text-white overflow-hidden bg-gradient-to-br ${grad} shadow-xl`}>
+    <div className={`relative rounded-3xl p-6 text-white overflow-hidden bg-gradient-to-br ${grad} shadow-xl backdrop-blur-sm border border-white/20`}>
       {/* decorative blobs */}
-      <div className={`absolute -right-5 -top-5 w-32 h-32 rounded-full ${deco1} opacity-40`} />
-      <div className={`absolute right-8 bottom-4 w-16 h-16 rounded-full ${deco2} opacity-30`} />
+      <div className={`absolute -right-5 -top-5 w-32 h-32 rounded-full ${deco1} opacity-50`} />
+      <div className={`absolute right-8 bottom-4 w-16 h-16 rounded-full ${deco2} opacity-40`} />
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-5">

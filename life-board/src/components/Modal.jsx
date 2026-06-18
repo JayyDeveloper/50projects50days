@@ -11,15 +11,15 @@ export default function Modal({ title, onClose, children }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/50 backdrop-blur-md"
         onClick={onClose}
       />
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md border border-gray-100 dark:border-gray-700 animate-in fade-in zoom-in-95 duration-200">
-        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-gray-700">
-          <h3 className="font-semibold text-base">{title}</h3>
+      <div className="relative bg-white/80 dark:bg-white/8 backdrop-blur-2xl rounded-2xl shadow-2xl w-full max-w-md border border-white/40 dark:border-white/10 animate-in fade-in zoom-in-95 duration-200">
+        <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-white/30 dark:border-white/10">
+          <h3 className="font-semibold text-base text-gray-800 dark:text-white">{title}</h3>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="p-1.5 rounded-lg hover:bg-white/30 dark:hover:bg-white/10 transition-colors"
           >
             <X size={16} className="text-gray-400" />
           </button>

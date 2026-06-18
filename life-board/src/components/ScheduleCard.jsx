@@ -10,7 +10,7 @@ const TYPE_CFG = {
   reminder: { icon: Bell,        bg: 'bg-emerald-100 dark:bg-emerald-500/15', color: 'text-emerald-500', dot: 'bg-emerald-400' },
 }
 
-const inputCls = "w-full px-3 py-2.5 rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-sm outline-none focus:ring-2 focus:ring-blue-300 transition"
+const inputCls = "w-full px-3 py-2.5 rounded-xl border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-sm text-sm outline-none focus:ring-2 focus:ring-blue-300 transition"
 
 function EventForm({ onSave, onClose }) {
   const [title, setTitle] = useState('')
@@ -48,7 +48,7 @@ function EventForm({ onSave, onClose }) {
             return (
               <button key={key} type="button" onClick={() => setType(key)}
                 className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold border transition capitalize ${
-                  type === key ? `${cfg.bg} ${cfg.color} border-transparent` : 'border-gray-100 dark:border-white/10 text-gray-400 hover:border-gray-200'
+                  type === key ? `${cfg.bg} ${cfg.color} border-transparent` : 'border-white/30 dark:border-white/10 text-gray-400 hover:border-white/50'
                 }`}
               >
                 <Icon size={12} /> {key}
@@ -58,7 +58,7 @@ function EventForm({ onSave, onClose }) {
         </div>
       </div>
       <div className="flex gap-2 pt-1">
-        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-sm font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition">Cancel</button>
+        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-white/30 dark:border-white/10 text-sm font-medium hover:bg-white/20 dark:hover:bg-white/5 transition">Cancel</button>
         <button type="submit" className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-blue-400 to-indigo-500 text-white text-sm font-semibold hover:opacity-90 transition shadow-lg shadow-blue-200 dark:shadow-blue-900/30">Add Event</button>
       </div>
     </form>
@@ -69,7 +69,7 @@ function EventItem({ event, onDelete }) {
   const cfg = TYPE_CFG[event.type] ?? TYPE_CFG.task
   const Icon = cfg.icon
   return (
-    <div className="flex items-center gap-3 group py-2.5 border-b border-gray-50 dark:border-white/5 last:border-0">
+    <div className="flex items-center gap-3 group py-2.5 border-b border-white/10 dark:border-white/8 last:border-0 hover:bg-white/20 dark:hover:bg-white/10 rounded-xl px-2 -mx-2 transition-colors">
       <div className={`w-8 h-8 rounded-xl ${cfg.bg} flex items-center justify-center flex-shrink-0`}>
         <Icon size={13} className={cfg.color} />
       </div>
@@ -104,10 +104,10 @@ export default function ScheduleCard() {
     .filter(g => g.events.length > 0)
 
   return (
-    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-blue-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-white/10 shadow-2xl shadow-black/10 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-500/20 dark:to-indigo-500/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100/80 to-indigo-100/80 dark:from-blue-500/20 dark:to-indigo-500/20 flex items-center justify-center">
             <CalendarDays size={15} className="text-blue-500" />
           </div>
           <div>
@@ -116,7 +116,7 @@ export default function ScheduleCard() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <div className="flex bg-gray-100 dark:bg-white/5 rounded-xl p-0.5">
+          <div className="flex bg-white/20 dark:bg-white/5 rounded-xl p-0.5 border border-white/20 dark:border-white/10">
             {['today', 'week'].map(v => (
               <button key={v} onClick={() => setView(v)}
                 className={`px-3 py-1 rounded-lg text-xs font-semibold capitalize transition-all ${

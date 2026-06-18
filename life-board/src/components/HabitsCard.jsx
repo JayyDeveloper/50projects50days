@@ -10,7 +10,7 @@ function HabitItem({ habit, onToggle, onDelete }) {
   const streak = calcStreak(habit.completedDates)
 
   return (
-    <div className="flex items-center gap-3 group py-2.5 border-b border-gray-50 dark:border-white/5 last:border-0">
+    <div className="flex items-center gap-3 group py-2.5 border-b border-white/10 dark:border-white/8 last:border-0 hover:bg-white/20 dark:hover:bg-white/10 rounded-xl px-2 -mx-2 transition-colors">
       <button onClick={onToggle} className="flex-shrink-0 transition-all hover:scale-110 active:scale-95">
         {done
           ? <CheckCircle2 size={22} className="text-emerald-400 drop-shadow-sm" />
@@ -24,7 +24,7 @@ function HabitItem({ habit, onToggle, onDelete }) {
       </p>
       {streak > 0 && (
         <div className={`flex items-center gap-1 flex-shrink-0 px-2 py-0.5 rounded-full ${
-          streak >= 7 ? 'bg-orange-100 dark:bg-orange-500/15' : 'bg-gray-100 dark:bg-white/5'
+          streak >= 7 ? 'bg-orange-100/80 dark:bg-orange-500/15' : 'bg-white/30 dark:bg-white/5'
         }`}>
           <Flame size={11} className={streak >= 7 ? 'text-orange-500' : 'text-gray-400'} />
           <span className={`text-xs font-bold ${streak >= 7 ? 'text-orange-600 dark:text-orange-400' : 'text-gray-400'}`}>{streak}d</span>
@@ -49,13 +49,13 @@ function HabitForm({ onSave, onClose }) {
       <div>
         <label className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1.5">Habit name *</label>
         <input autoFocus value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Exercise, Read, Meditate..."
-          className="w-full px-3 py-2.5 rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-sm outline-none focus:ring-2 focus:ring-orange-300 transition" />
+          className="w-full px-3 py-2.5 rounded-xl border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-sm text-sm outline-none focus:ring-2 focus:ring-orange-300 transition" />
       </div>
       <div className="bg-orange-50 dark:bg-orange-500/10 rounded-xl px-3 py-2.5">
         <p className="text-xs text-orange-500 font-medium">Check daily to build your streak. Miss a day and it resets. 🔥</p>
       </div>
       <div className="flex gap-2 pt-1">
-        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-sm font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition">Cancel</button>
+        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-white/30 dark:border-white/10 text-sm font-medium hover:bg-white/20 dark:hover:bg-white/5 transition">Cancel</button>
         <button type="submit" className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-orange-400 to-rose-500 text-white text-sm font-semibold hover:opacity-90 transition shadow-lg shadow-orange-200 dark:shadow-orange-900/30">Add Habit</button>
       </div>
     </form>
@@ -70,10 +70,10 @@ export default function HabitsCard() {
   const pct = habits.length ? Math.round((done / habits.length) * 100) : 0
 
   return (
-    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-orange-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-white/10 shadow-2xl shadow-black/10 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-orange-100 to-rose-100 dark:from-orange-500/20 dark:to-rose-500/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-orange-100/80 to-rose-100/80 dark:from-orange-500/20 dark:to-rose-500/20 flex items-center justify-center">
             <Flame size={15} className="text-orange-500" />
           </div>
           <div>
@@ -92,7 +92,7 @@ export default function HabitsCard() {
             <span className="text-xs text-gray-400 font-medium">Today's progress</span>
             {pct === 100 && <span className="text-xs font-bold text-emerald-500">🎉 All done!</span>}
           </div>
-          <div className="h-2 bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
+          <div className="h-2 bg-white/20 dark:bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-gradient-to-r from-orange-400 to-rose-400 rounded-full transition-all duration-700" style={{ width: `${pct}%` }} />
           </div>
         </div>

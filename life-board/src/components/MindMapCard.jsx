@@ -25,11 +25,11 @@ function NewMapForm({ onSave, onClose }) {
         <input
           autoFocus value={name} onChange={e => setName(e.target.value)}
           placeholder="e.g. Business Ideas, Life Goals..."
-          className="w-full px-3 py-2.5 rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-sm outline-none focus:ring-2 focus:ring-violet-300 transition"
+          className="w-full px-3 py-2.5 rounded-xl border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 backdrop-blur-sm text-sm outline-none focus:ring-2 focus:ring-violet-300 transition"
         />
       </div>
       <div className="flex gap-2 pt-1">
-        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-sm font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition">Cancel</button>
+        <button type="button" onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-white/30 dark:border-white/10 text-sm font-medium hover:bg-white/20 dark:hover:bg-white/5 transition">Cancel</button>
         <button type="submit" className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white text-sm font-semibold hover:opacity-90 transition shadow-lg shadow-violet-200 dark:shadow-violet-900/30">Create Map</button>
       </div>
     </form>
@@ -41,10 +41,10 @@ export default function MindMapCard({ onOpenMap }) {
   const [showModal, setShowModal] = useState(false)
 
   return (
-    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-violet-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white/50 dark:bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/30 dark:border-white/10 shadow-2xl shadow-black/10 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-100 to-fuchsia-100 dark:from-violet-500/20 dark:to-fuchsia-500/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-100/80 to-fuchsia-100/80 dark:from-violet-500/20 dark:to-fuchsia-500/20 flex items-center justify-center">
             <Brain size={15} className="text-violet-500" />
           </div>
           <div>
@@ -69,7 +69,7 @@ export default function MindMapCard({ onOpenMap }) {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {mindMaps.map((map, i) => (
-            <div key={map.id} className="relative group rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden hover:border-violet-200 dark:hover:border-violet-500/30 transition-all">
+            <div key={map.id} className="relative group rounded-2xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-sm overflow-hidden hover:border-violet-300/50 dark:hover:border-violet-500/30 hover:bg-white/30 dark:hover:bg-white/10 transition-all">
               {/* gradient preview strip */}
               <div className={`h-2 bg-gradient-to-r ${GRADIENT_PREVIEWS[i % GRADIENT_PREVIEWS.length]}`} />
               <div className="p-4">
@@ -84,7 +84,7 @@ export default function MindMapCard({ onOpenMap }) {
                   </button>
                   <button
                     onClick={() => deleteMindMap(map.id)}
-                    className="opacity-0 group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 transition-all"
+                    className="opacity-0 group-hover:opacity-100 p-1 rounded-lg hover:bg-red-50/80 dark:hover:bg-red-500/10 transition-all"
                   >
                     <Trash2 size={11} className="text-red-400" />
                   </button>

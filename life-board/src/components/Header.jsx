@@ -18,7 +18,7 @@ export default function Header() {
   })
 
   return (
-    <header className="bg-white/60 dark:bg-black/60 backdrop-blur-xl border-b border-white/80 dark:border-white/5 sticky top-0 z-40">
+    <header className="bg-white/20 dark:bg-white/5 backdrop-blur-2xl border-b border-white/30 dark:border-white/10 sticky top-0 z-40">
       <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4">
 
         <div className="flex items-center gap-2.5 flex-shrink-0">
@@ -52,7 +52,7 @@ export default function Header() {
 
         <button
           onClick={toggleTheme}
-          className="flex-shrink-0 w-8 h-8 rounded-xl bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 flex items-center justify-center transition-colors"
+          className="flex-shrink-0 w-8 h-8 rounded-xl bg-white/30 dark:bg-white/10 hover:bg-white/50 dark:hover:bg-white/20 flex items-center justify-center transition-colors"
         >
           {theme === 'light' ? <Moon size={15} className="text-gray-500" /> : <Sun size={15} className="text-amber-400" />}
         </button>
