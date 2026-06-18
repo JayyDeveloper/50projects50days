@@ -49,7 +49,7 @@ function AreaForm({ initial, onSave, onClose }) {
           {Object.entries(COLORS).map(([key, c]) => (
             <button key={key} type="button" onClick={() => setColor(key)}
               className={`w-8 h-8 rounded-full bg-gradient-to-br ${c.grad} transition-all hover:scale-110 ${
-                color === key ? 'ring-2 ring-offset-2 ring-gray-400 dark:ring-offset-[#16132a] scale-110' : ''
+                color === key ? 'ring-2 ring-offset-2 ring-gray-400 dark:ring-offset-[#0f0f0f] scale-110' : ''
               }`}
             />
           ))}
@@ -89,7 +89,7 @@ export default function GrowthCard() {
   const avg = growthAreas.length ? Math.round(growthAreas.reduce((s, a) => s + a.progress, 0) / growthAreas.length) : 0
 
   return (
-    <div className="bg-white dark:bg-[#16132a] rounded-3xl shadow-sm shadow-teal-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-teal-100 dark:shadow-none border border-white dark:border-white/5 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-teal-100 to-emerald-100 dark:from-teal-500/20 dark:to-emerald-500/20 flex items-center justify-center">

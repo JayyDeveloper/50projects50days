@@ -104,7 +104,7 @@ export default function ScheduleCard() {
     .filter(g => g.events.length > 0)
 
   return (
-    <div className="bg-white dark:bg-[#16132a] rounded-3xl shadow-sm shadow-blue-100 dark:shadow-none border border-white dark:border-white/5 p-6">
+    <div className="bg-white dark:bg-[#0f0f0f] rounded-3xl shadow-sm shadow-blue-100 dark:shadow-none border border-white dark:border-white/5 p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-500/20 dark:to-indigo-500/20 flex items-center justify-center">

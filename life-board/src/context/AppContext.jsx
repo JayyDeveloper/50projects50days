@@ -33,6 +33,22 @@ const defaultData = {
     { id: 'g4', name: 'Discipline', progress: 55, color: 'orange' },
     { id: 'g5', name: 'Mindfulness', progress: 35, color: 'blue' },
   ],
+  mindMaps: [
+    {
+      id: 'mm1',
+      name: 'Life Vision',
+      nodes: [
+        { id: 'root', text: 'Life Vision', x: 1880, y: 1460, parentId: null, colorIdx: 0 },
+        { id: 'n1',   text: 'Career',      x: 2120, y: 1300, parentId: 'root', colorIdx: 1 },
+        { id: 'n2',   text: 'Health',      x: 2120, y: 1460, parentId: 'root', colorIdx: 2 },
+        { id: 'n3',   text: 'Learning',    x: 2120, y: 1620, parentId: 'root', colorIdx: 3 },
+        { id: 'n4',   text: 'Finances',    x: 1640, y: 1380, parentId: 'root', colorIdx: 4 },
+        { id: 'n5',   text: 'Side hustle', x: 2360, y: 1260, parentId: 'n1',  colorIdx: 1 },
+        { id: 'n6',   text: 'Gym 4x/week', x: 2360, y: 1420, parentId: 'n2',  colorIdx: 2 },
+      ],
+      createdAt: new Date().toISOString(),
+    }
+  ],
 }
 
 function load() {
@@ -86,6 +102,17 @@ export function AppProvider({ children }) {
   const updateGrowthArea = (id, patch) => set({ growthAreas: data.growthAreas.map(a => a.id === id ? { ...a, ...patch } : a) })
   const deleteGrowthArea = (id) => set({ growthAreas: data.growthAreas.filter(a => a.id !== id) })
 
+  const addMindMap = (name) => set({
+    mindMaps: [...data.mindMaps, {
+      id: uid(), name, nodes: [{ id: uid(), text: name, x: 1880, y: 1460, parentId: null, colorIdx: 0 }],
+      createdAt: new Date().toISOString()
+    }]
+  })
+  const deleteMindMap = (id) => set({ mindMaps: data.mindMaps.filter(m => m.id !== id) })
+  const updateMindMap = (id, nodes, name) => set({
+    mindMaps: data.mindMaps.map(m => m.id === id ? { ...m, nodes, name } : m)
+  })
+
   return (
     <AppContext.Provider value={{
       ...data,
@@ -94,6 +121,7 @@ export function AppProvider({ children }) {
       addHabit, deleteHabit, toggleHabitToday,
       addEvent, deleteEvent,
       addGrowthArea, updateGrowthArea, deleteGrowthArea,
+      addMindMap, deleteMindMap, updateMindMap,
     }}>
       {children}
     </AppContext.Provider>
