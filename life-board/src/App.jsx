@@ -9,11 +9,11 @@ import GrowthCard from './components/GrowthCard'
 export default function App() {
   return (
     <AppProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+      <div className="min-h-screen bg-[#f4f3ff] dark:bg-[#09090f] transition-colors duration-300">
         <Header />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-10">
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
           <StatsBar />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-4">
             <ProjectsCard />
             <ScheduleCard />
             <HabitsCard />

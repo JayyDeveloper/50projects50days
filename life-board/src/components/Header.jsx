@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Moon, Sun, Pencil, Check } from 'lucide-react'
+import { Moon, Sun, Pencil, Check, Sparkles } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import { getGreeting } from '../utils/helpers'
 
@@ -18,18 +18,23 @@ export default function Header() {
   })
 
   return (
-    <header className="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 sticky top-0 z-40 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-            <span className="text-white font-bold text-sm select-none">L</span>
+    <header className="bg-gradient-to-r from-[#13102b] via-[#1e1550] to-[#13102b] dark:from-[#0a0812] dark:via-[#110d3a] dark:to-[#0a0812] sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+
+        {/* Logo */}
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-400 to-pink-500 flex items-center justify-center shadow-lg shadow-violet-500/30">
+            <Sparkles size={15} className="text-white" />
           </div>
-          <span className="font-semibold text-base tracking-tight">Life Board</span>
+          <span className="font-bold text-base bg-gradient-to-r from-violet-300 to-pink-300 bg-clip-text text-transparent tracking-tight">
+            Life Board
+          </span>
         </div>
 
-        <div className="flex flex-col items-center">
+        {/* Greeting */}
+        <div className="flex flex-col items-center flex-1 min-w-0">
           <div className="flex items-center gap-1.5">
-            <p className="text-sm font-semibold">
+            <p className="text-white font-semibold text-sm sm:text-base">
               {getGreeting()},{' '}
               {editing ? (
                 <input
@@ -37,31 +42,31 @@ export default function Header() {
                   value={val}
                   onChange={e => setVal(e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter') save() }}
-                  className="bg-transparent border-b border-purple-400 outline-none w-24 text-sm font-semibold"
+                  className="bg-transparent border-b border-violet-400 outline-none w-24 font-semibold text-white"
                 />
               ) : (
-                <span>{user.name}</span>
+                <span className="text-violet-300">{user.name}</span>
               )}
-              !
             </p>
             <button
               onClick={() => editing ? save() : setEditing(true)}
-              className="text-gray-300 hover:text-purple-400 transition-colors"
+              className="text-white/30 hover:text-violet-300 transition-colors"
             >
-              {editing ? <Check size={13} /> : <Pencil size={13} />}
+              {editing ? <Check size={13} /> : <Pencil size={12} />}
             </button>
           </div>
-          <p className="text-xs text-gray-400 hidden sm:block">{date}</p>
+          <p className="text-white/30 text-xs hidden sm:block mt-0.5">{date}</p>
         </div>
 
+        {/* Theme toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="flex-shrink-0 p-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
           aria-label="Toggle theme"
         >
           {theme === 'light'
-            ? <Moon size={18} className="text-gray-500" />
-            : <Sun size={18} className="text-amber-400" />
+            ? <Moon size={16} className="text-white/60" />
+            : <Sun size={16} className="text-amber-300" />
           }
         </button>
       </div>
